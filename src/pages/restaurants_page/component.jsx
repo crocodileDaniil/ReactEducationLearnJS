@@ -6,7 +6,7 @@ export const RestaurantsPage = ( { mock } ) => {
   // console.log('value of PAGE', mock)
   //  console.log('value of name', filterArray)
   return <div>
-    <FilterMenu filterArray={filterArray} filterClick={ () => {console.log('Page',filterArray)}}/>
+    <FilterMenu filterArray={filterArray} filterClick={ (n) => {console.log('Page: ',filterArray[n])}}/>
     <RestaurantsWindow mock={mock} />
     
   </div>
