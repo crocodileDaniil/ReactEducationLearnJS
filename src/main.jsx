@@ -1,13 +1,13 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { restaurants } from "../mock/mock.js";
+import { App } from "./App.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <ul>
     <li id={restaurants[0].id}>
-      <h1> {restaurants[0].name}</h1>
+      <h2> {restaurants[0].name}</h2>
 
       <h3>Меню</h3>
       <ul>
@@ -62,7 +62,7 @@ root.render(
     </li>
 
     <li id={restaurants[1].id}>
-      <h1> {restaurants[1].name} </h1>
+      <h2> {restaurants[1].name} </h2>
 
       <h3>Меню</h3>
       <ul>
@@ -119,7 +119,7 @@ root.render(
     </li>
 
     <li id={restaurants[2].id}>
-      <h1> {restaurants[2].name} </h1>
+      <h2> {restaurants[2].name} </h2>
 
       <h3>Меню</h3>
       <ul>
@@ -165,7 +165,7 @@ root.render(
     </li>
 
     <li id={restaurants[3].id}>
-      <h1> {restaurants[3].name} </h1>
+      <h2> {restaurants[3].name} </h2>
 
       <h3>Меню</h3>
       <ul>
