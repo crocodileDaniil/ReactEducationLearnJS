@@ -1,13 +1,12 @@
-import { FilterMenu } from '../../components/filter_menu/component'
-import { RestaurantsWindow } from '../../components/restaurants_window/component'
+import { FilterFoods } from '../../components/filter_menu/component'
+import { Restaurants } from '../../components/restaurants_window/component'
 
 export const RestaurantsPage = ( { mock } ) => {
-  const filterArray = structuredClone(mock).map(elem => elem.name)
-  // console.log('value of PAGE', mock)
-  //  console.log('value of name', filterArray)
+  const filters = structuredClone(mock).map(elem => elem.name)
+ 
   return <div>
-    <FilterMenu filterArray={filterArray} filterClick={ (n) => {console.log('Page: ',filterArray[n])}}/>
-    <RestaurantsWindow mock={mock} />
+    <FilterFoods filters={filters} onFilterClick={ (n) => {console.log('Page: ',filters[n])}}/>
+    <Restaurants dataFoods={mock} />
     
   </div>
 }

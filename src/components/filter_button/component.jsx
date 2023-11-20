@@ -1,5 +1,5 @@
-export const FilterButton = ( { name, clickFilter }) => {
-  return <button onClick={clickFilter}>
+export const FilterButton = ( { name, onClickFilter }) => {
+  return <button onClick={onClickFilter}>
     {name}
   </button>
 }
