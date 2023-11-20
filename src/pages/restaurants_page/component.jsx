@@ -1,5 +1,5 @@
 import { FilterFoods } from '../../components/filter_menu/component'
-import { Restaurants } from '../../components/restaurants_window/component'
+import { Restaurants } from '../../components/restaurants/component'
 
 export const RestaurantsPage = ( { mock } ) => {
   const filters = structuredClone(mock).map(elem => elem.name)
