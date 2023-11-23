@@ -1,6 +1,10 @@
+
 import { useState } from "react";
 import { FilterFoods } from "../../components/filter_menu/component";
 import { Restaurants } from "../../components/restaurants/component";
+=======
+
+
 
 export const RestaurantsPage = ({ mock }) => {
   const filters = structuredClone(mock)
