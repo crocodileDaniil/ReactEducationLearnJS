@@ -17,22 +17,16 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "setName":
       return { ...state, name: action.payload };
-    // return {  // нужно как на лекции, чтобы при изменении имени очищялись остальные поля или нет?
-    //   ...state,
-    //   name: action.payload,
-    //   text: DEFAULT_FORM_VALUE.text,
-    //   rating: DEFAULT_FORM_VALUE.rating,
-    // };
     case "setText":
       return { ...state, text: action.payload };
     case "setRating":
-      return { ...state, rating: boundaryCheck(action.payload) };
+      return { ...state, rating: boundaryConrol(action.payload) };
     default:
       return state;
   }
 };
 
-const boundaryCheck = ( n ) => {
+const boundaryConrol = ( n ) => {
   if (+n >= rightBoundary) return rightBoundary;
   if (+n <= leftBoundary) return leftBoundary;
   return n

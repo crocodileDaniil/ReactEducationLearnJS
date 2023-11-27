@@ -12,6 +12,8 @@ export const Dish = ({ data }) => {
 
   // console.log('rerender')
   const priceDiscount = 1 - discount;
+  const totalPrice = 
+  ( isDiscountUse ? data.price * priceDiscount * count : data.price * count).toFixed(2);
 
   return (
     <>
@@ -24,7 +26,6 @@ export const Dish = ({ data }) => {
           Use discount: {isDiscountUse ? "Yes" : "No"}{" "}
         </button>
         <Counter
-          order={true}
           onValueDown={() =>
             setCount(count - 1 < minCount ? minCount : count - 1)
           }
@@ -32,8 +33,9 @@ export const Dish = ({ data }) => {
             setCount(count + 1 > maxCount ? maxCount : count + 1)
           }
           count={count}
-          price={isDiscountUse ? data.price * priceDiscount : data.price}
+          // price={isDiscountUse ? data.price * priceDiscount : data.price}
         />
+        <li>Total price:{totalPrice} </li>
       </ul>
     </>
   );
