@@ -1,0 +1,19 @@
+.restaurant {
+  flex-basis: 500px ;
+  padding: 10px;
+  background-color: rgb(244, 244, 88);
+  border-radius: 8px;
+  flex-grow: 1;
+}
+.title {
+  text-align: center;
+  text-shadow: 0px 4px 10px rgba(179, 147, 211, 0.8)
+}
+
+.reviews{
+  margin-top: 10px;
+}
+
+.reviewForm{
+  margin-top: 10px;
+}

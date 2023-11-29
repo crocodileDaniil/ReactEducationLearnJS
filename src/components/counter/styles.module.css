@@ -1,0 +1,49 @@
+
+.counter {
+display: flex;
+gap: 5px;
+align-items: center;
+}
+.count{
+  color: rgb(255, 128, 0);
+}
+
+.button {
+  border-radius: 50%;
+  width: 24px;
+  cursor: pointer;
+}
+
+.button-menu {
+  background-color: #f9d2cc;
+  transition: 0.3s;
+  
+}
+
+
+.button-menu:hover {
+  transform: scale(1.1);
+  background-color:  rgb(255, 85, 0);
+
+}
+
+.button-menu:active {
+  border-color:  rgb(253, 102, 27);
+  background-color:  rgb(252, 142, 87);
+}
+
+.button-review {
+  background-color: #d0e2eb;
+  transition: 0.3s;
+}
+
+.button-review:hover {
+  transform: scale(1.1);
+  background-color:   #858ef5;
+
+}
+
+.button-review:active {
+  border-color: navy;
+  background-color:  #afb5f7;
+}

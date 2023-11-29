@@ -1,0 +1,16 @@
+.menu {
+  padding: 5px;
+  border-radius: 8px;
+  background-color: #d0e2eb;
+
+}
+
+.menuDishes {
+  padding: 0;
+  list-style-type: none; /* изначльно там были лишки */
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: start;
+}
