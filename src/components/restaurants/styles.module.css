@@ -1,0 +1,10 @@
+.restaurants {
+ display: flex;
+ /* flex-direction: column; */
+ justify-content: center;
+  padding: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+ 
+}
+

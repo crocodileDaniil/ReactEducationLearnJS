@@ -1,13 +1,30 @@
-export const Counter = ({ onValueDown, count, onValueUp }) => {
+import classNames from "classnames";
+import styles from "./styles.module.css";
+
+export const Counter = ({ onValueDown, count, onValueUp,type }) => {
   return (
-    <div>
-      <button style={{ marginRight: "10px" }} onClick={onValueUp}>
+    <div className={styles.counter}>
+      <button
+        className={classNames(styles.button, {
+          [styles["button-menu"]]: type === "button-menu",
+        },{
+          [styles["button-review"]]: type === "button-review",
+        })}
+        onClick={onValueUp}
+      >
         +
       </button>
 
-      <span> {count} </span>
+      <span className={styles.count}> {count} </span>
 
-      <button style={{ marginLeft: "10px" }} onClick={onValueDown}>
+      <button
+         className={classNames(styles.button, {
+          [styles["button-menu"]]: type === "button-menu",
+        }, {
+          [styles["button-review"]]: type === "button-review",
+        })}
+        onClick={onValueDown}
+      >
         -
       </button>
     </div>

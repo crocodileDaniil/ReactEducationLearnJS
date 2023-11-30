@@ -1,0 +1,16 @@
+.buttonActive {
+  background-color: rgb(42, 124, 165);
+  color: rgb(239, 239, 248);
+  border-color: rgb(42, 124, 165);
+}
+
+.filterMenu{
+  
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+  gap: 10px;
+
+}

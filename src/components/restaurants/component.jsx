@@ -1,8 +1,12 @@
+import classNames from "classnames"
 import { Restaurant } from "../restaurant/component"
 
-export const Restaurants = ( { dataFoods }) => {
+import styles from './styles.module.css'
+
+export const Restaurants = ( { dataFoods,className }) => {
   // console.log('value of window', mock)
-return <div style={{border: "1px solid pink",padding: "15px"}}> 
+return <div className={classNames(className, styles.restaurants)} 
+> 
 
   {dataFoods.map((elem) => <Restaurant data={elem}/>)}
 </div>

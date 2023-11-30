@@ -1,11 +1,13 @@
 import { Dish } from "./dish/component"
 
+import styles from './styles.module.css'
+
 export const RestaurantMenu = ( { menu }) => {
   // console.log('value of menu', menu)
-return <> 
+return <div className={styles.menu}> 
   <h3>Меню: </h3>
-  <ul> 
-      {menu.map((elem) => <li> <Dish data={elem}/> </li>)}
+  <ul className={styles.menuDishes}> 
+      {menu.map((elem) =>  <Dish data={elem}/> )}
   </ul>
-</>
+</div>
 }
