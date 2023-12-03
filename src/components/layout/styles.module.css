@@ -1,0 +1,11 @@
+.layout {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-row-gap: 10px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}

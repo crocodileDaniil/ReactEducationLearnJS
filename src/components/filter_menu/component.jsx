@@ -3,6 +3,7 @@ import styles from "./styles.module.css"
 import {onActive} from './index.js'
 import classNames from "classnames"
 
+
 export const FilterFoods = ( { filters, onFilterClick, className } ) => {
   // console.log('value of filterMenu', filterArray)
 

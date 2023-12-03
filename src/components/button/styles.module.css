@@ -1,0 +1,26 @@
+.button-default {
+  border-radius: 8px;
+  padding: 10px;
+  color: wheat;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.button-default_white {
+  background-color:var(--white-color-defaultButton);
+  border: 2px solid var(--white-color-defaultButtonBorder);
+}
+
+.button-default_dark {
+  background-color:var(--dark-color-defaultButton);
+  border: 2px solid var(--dark-color-defaultButtonBorder);
+}
+
+.button-default:active {
+  border-color: gold;
+}
+
+.button-default:active {
+ background-color:  rgb(108, 36, 251);
+  border:2px solid rgb(85, 0, 255);
+}

@@ -1,0 +1,11 @@
+.root {
+  width: 100vw;
+  background-color: var(--white-color-header);
+}
+.header {
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  justify-content:space-around;
+  max-width: 1200px;
+}

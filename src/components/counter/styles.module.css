@@ -5,7 +5,7 @@ gap: 5px;
 align-items: center;
 }
 .count{
-  color: rgb(255, 128, 0);
+  color:var(--white-color-four);
 }
 
 .button {
@@ -15,10 +15,15 @@ align-items: center;
 }
 
 .button-menu {
-  background-color: #f9d2cc;
+  background-color: var(--white-color-buttonMenu);
   transition: 0.3s;
   
 }
+
+.button-menu_dark {
+  background-color: var(--dark-color-buttonMenu);
+}
+
 
 
 .button-menu:hover {
@@ -35,6 +40,10 @@ align-items: center;
 .button-review {
   background-color: #d0e2eb;
   transition: 0.3s;
+}
+
+.button-review_dark {
+  background-color: #95a2a8
 }
 
 .button-review:hover {
