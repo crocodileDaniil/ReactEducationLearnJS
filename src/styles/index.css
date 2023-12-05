@@ -1,0 +1,47 @@
+:root {
+
+  --white-color-one : #d0e2eb ;
+  --white-color-two : #fce6e2 ;
+  --white-color-three : beige ;
+  --white-color-four : rgb(255, 128, 0);
+  --white-color-five :  #f9d2cc ;
+  --white-color-buttonMenu : var(--white-color-five) ;
+  --white-color-menu: var( --white-color-one);
+  --white-color-food: var(--white-color-two);
+  --white-color-discount: var(--white-color-five);
+  --white-color-colorCount:var(--white-color-four);
+  --white-color-reviews:  var(--white-color-two);
+  --white-color-review: var(--white-color-three);
+  --white-color-form: var(--white-color-three);
+  --white-color-restaurant: rgb(244, 244, 88) ;
+  --white-color-header: var(--white-color-one);
+  --white-color-footer: var(--white-color-one);
+  --white-color-defaultButton: rgb(0, 106, 255);
+  --white-color-defaultButtonBorder:rgb(0, 98, 255);
+
+  --dark-color-defaultButton: rgb(5, 186, 111);
+  --dark-color-defaultButtonBorder:rgb(4, 118, 59);
+  --dark-color-one : #121212 ;
+  --dark-color-two : #9d0bdb ;
+  --dark-color-three : rgb(174, 82, 186) ;
+  --dark-color-four : rgb(195, 65, 65);
+  --dark-color-five :  #06ae94 ;
+  --dark-color-buttonMenu : var(--dark-color-five) ;
+  --dark-color-menu: var( --dark-color-one);
+  --dark-color-food: var(--dark-color-two);
+  --dark-color-discount: var(--dark-color-five);
+  --dark-color-colorCount:var(--dark-color-four);
+  --dark-color-reviews:  var(--dark-color-two);
+  --dark-color-review: var(--dark-color-three);
+  --dark-color-form: var(--dark-color-three);
+  --dark-color-restaurant: rgb(123, 123, 63) ;
+  --dark-color-header: var(--dark-color-one);
+  --dark-color-footer: var(--dark-color-one);
+
+}
+
+html,body {
+  margin: 0;
+  height: 100vh;
+ 
+}

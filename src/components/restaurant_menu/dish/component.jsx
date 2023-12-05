@@ -3,6 +3,8 @@ import { Counter } from "../../counter/component";
 import { useEffect } from "react";
 
 import styles from "./styles.module.css";
+import classNames from "classnames";
+import { useTheme } from "../../thems/hooks";
 
 const [maxCount, minCount] = [5, 0];
 const discount = 0.3;
@@ -18,6 +20,8 @@ export const Dish = ({ data }) => {
     isDiscountUse ? data.price * priceDiscount * count : data.price * count
   ).toFixed(2);
 
+
+  const {theme} = useTheme()
   return (
     <div className={styles.dish}>
         <p className={styles.name}>{data.name}</p>
@@ -30,7 +34,10 @@ export const Dish = ({ data }) => {
         </div>
       </div>
       <div className={styles.order}>
-        <button className={styles.discount}
+        <button className={classNames(styles.discount, 
+        {[styles.discount_white]: theme.whiteThemeButton === true && theme.whiteThemeAll === true },
+        {[styles.discount_dark]: theme.whiteThemeButton === false || theme.whiteThemeAll === false }
+        )}
          onClick={() => setIsDiscountUse(!isDiscountUse)}>
           {" "}
           Use discount: {isDiscountUse ? "Yes" : "No"}{" "}
