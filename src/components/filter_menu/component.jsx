@@ -2,12 +2,15 @@ import { FilterButton } from "../filter_button/component"
 import styles from "./styles.module.css"
 import {onActive} from './index.js'
 import classNames from "classnames"
+import { useSelector } from "react-redux"
+import { selectRestaurantIds } from "../../redux_store/features/entities/restaurant/selectors.js"
 
 
-export const FilterFoods = ( { filters, onFilterClick, className } ) => {
+export const FilterFoods = ( {onFilterClick, className } ) => {
   // console.log('value of filterMenu', filterArray)
+  const filtersIds = useSelector( (state) => selectRestaurantIds(state)).concat(["reset", 'All'])
 
 return <div className={classNames(styles.filterMenu,className)}  onClick={onActive}> 
-  {filters.map((name) => <FilterButton name={name} onClickFilter={() => onFilterClick(name)} />)}
+  {filtersIds.map((restaurantId) => <FilterButton id={restaurantId} onClickFilter={() => onFilterClick(restaurantId)} />)}
 </div>
 }

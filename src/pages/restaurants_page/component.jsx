@@ -3,17 +3,16 @@ import { FilterFoods } from "../../components/filter_menu/component";
 import { Restaurants } from "../../components/restaurants/component";
 import styles from "./styles.module.css";
 import { Layout } from "../../components/layout/component";
+import { useSelector } from "react-redux";
+import { selectRestaurantsFilteredById } from "../../redux_store/features/entities/restaurant/selectors";
 
-export const RestaurantsPage = ({ mock }) => {
+export const RestaurantsPage = () => {
   const [filter, setFilter] = useState("");
 
-  const filters = structuredClone(mock)
-    .map((elem) => elem.name)
-    .concat(["All", "Reset"]);
+  // const restaurants = useSelector( store => selectRestaurantModule(store).entities)
 
-  // console.log(theme, );
+  const restaurantsIds = useSelector( store => selectRestaurantsFilteredById(store,filter ) )
 
-  const foods = mock.filter((elem) => elem.name === filter || filter === "All");
 
   return (
     <Layout>
@@ -21,14 +20,16 @@ export const RestaurantsPage = ({ mock }) => {
         <div className={styles.wpapper}>
           <FilterFoods
             className={styles.container}
-            filters={filters}
+            // filters={filters}
+
+
             onFilterClick={(newFilter) => {
               setFilter(newFilter);
             }}
           />
         </div>
         <div className={styles.wpapper}>
-          <Restaurants className={styles.container} dataFoods={foods} />
+          <Restaurants className={styles.container} restaurantsIds={restaurantsIds} />
         </div>
       </div>
     </Layout>

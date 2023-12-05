@@ -3,11 +3,14 @@ import { Restaurant } from "../restaurant/component"
 
 import styles from './styles.module.css'
 
-export const Restaurants = ( { dataFoods,className }) => {
+export const Restaurants = ( { restaurantsIds,className }) => {
   // console.log('value of window', mock)
 return <div className={classNames(className, styles.restaurants)} 
 > 
 
-  {dataFoods.map((elem) => <Restaurant data={elem}/>)}
+  {restaurantsIds.map((id) => <Restaurant id={id}/>
+  
+  
+  )}
 </div>
 }
