@@ -7,22 +7,9 @@ import { selectRestaurantById } from "../../redux_store/features/entities/restau
 export const FilterButton = ({ id, onClickFilter }) => {
   const { theme } = useTheme();
 
-  // const restaurantName =
-  //   id === "reset" || id === "all"
-  //     ? id
-  //     : useSelector((store) => selectRestaurantById(store, id).name);
+  // console.log('Id this filterButton', id)
 
-// какой из способов лучше (можно это в какие-то const's добавить), или такой функционал лучше не добавлять
-      const restaurantName =
-      id === "reset" || id === "All"
-        ? id
-        : ( () => { 
-          const selectRestaurant = useSelector((store) => selectRestaurantById(store, id));
-          return selectRestaurant ? selectRestaurant.name : null
-        })();
-
-  // как лучше?
-  // const restaurantName = useSelector( (store) => selectRestaurantName(store, id))
+const restaurantName =  useSelector((store) => selectRestaurantById(store, id)?.name);
 
   // console.log("filter", restaurantName);
   return (
@@ -40,7 +27,7 @@ export const FilterButton = ({ id, onClickFilter }) => {
         }
       )}
     >
-      restaurant: {restaurantName}
+      restaurant: {restaurantName ? restaurantName : id}
     </button>
   );
 };
