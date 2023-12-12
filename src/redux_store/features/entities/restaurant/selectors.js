@@ -11,3 +11,5 @@ export const selectRestaurantsFilteredById = ( state, id ) => {
   const restaurantsIds = selectRestaurantIds(state)
   return restaurantsIds.filter((elem) => elem === id || id === "All" )
 }
+
+export const selectRestaurantStatus = (state) => selectRestaurantModule(state).status

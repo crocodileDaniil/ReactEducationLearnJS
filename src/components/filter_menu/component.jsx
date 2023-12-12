@@ -7,7 +7,8 @@ import { selectRestaurantIds } from "../../redux_store/features/entities/restaur
 
 
 export const FilterFoods = ( {onFilterClick, className } ) => {
-  // console.log('value of filterMenu', filterArray)
+
+
   const filtersIds = useSelector( (state) => selectRestaurantIds(state)).concat(["reset", 'All'])
 
 return <div className={classNames(styles.filterMenu,className)}  onClick={onActive}> 

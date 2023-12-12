@@ -8,7 +8,7 @@ export const Footer = (  {className} ) => {
 return <footer className={styles.root}> 
 <div className={classNames(className,styles.footer )}>
   <h2>restaurants info</h2>
-  <Button name={"homeWork 6"}/>
+  <Button name={"homeWork 8"}/>
   <ThemsManager />
   </div>
 </footer>
