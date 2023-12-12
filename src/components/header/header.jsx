@@ -8,7 +8,7 @@ export const Header = ({ className }) => {
     <header className={styles.root}>
       <div className={classNames(className, styles.header)}>
         <h2>best food</h2>
-        <Button name={"homeWork 6"} />
+        <Button name={"homeWork 7"} />
         <ThemsManager />
       </div>
     </header>

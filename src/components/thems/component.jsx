@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useState } from "react";
 import { ThemeContext } from "./context";
 
-export const ThemeProvider = ({children}) => {
+export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState({
     whiteThemeButton: true,
     whiteThemeAll: true,
@@ -18,7 +18,9 @@ export const ThemeProvider = ({children}) => {
     []
   );
 
-  return <ThemeContext.Provider value={{ theme, setThemeButton,setThemeAll }}>
-{children}
-  </ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ theme, setThemeButton, setThemeAll }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };

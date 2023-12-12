@@ -5,16 +5,21 @@ import { useEffect } from "react";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import { useTheme } from "../../thems/hooks";
+import { useSelector } from "react-redux";
+import { selectDish, selectDishEntities, selectDishModule } from "../../../redux_store/features/entities/dishe/selectors";
 
 const [maxCount, minCount] = [5, 0];
 const discount = 0.3;
 
-export const Dish = ({ data }) => {
+export const Dish = ({ dishId }) => {
   const [count, setCount] = useState(0);
   const [isDiscountUse, setIsDiscountUse] = useState(false);
   useEffect(() => setCount(0), [isDiscountUse]);
 
-  // console.log('rerender')
+  const data = useSelector( state => selectDish(state, dishId))
+  // console.log('Dish', data)
+
+  
   const priceDiscount = 1 - discount;
   const totalPrice = (
     isDiscountUse ? data.price * priceDiscount * count : data.price * count
