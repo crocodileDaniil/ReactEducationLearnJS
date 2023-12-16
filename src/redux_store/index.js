@@ -14,8 +14,11 @@ const store = configureStore({
     review: reviewSlice.reducer,
     user: userSlice.reducer,
   },
+  middleware: (getDefaultMiddlewares) => getDefaultMiddlewares(),
 })
 
 export default store
 
 console.log('redux_store: ' , store.getState() )
+
+export const getStore = () => store.getState()
