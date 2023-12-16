@@ -1,20 +1,26 @@
 import classNames from "classnames"
 import { Restaurant } from "../restaurant/component"
-
 import styles from './styles.module.css'
-import { selectRestaurantsFilteredById } from "../../redux_store/features/entities/restaurant/selectors"
-import { useSelector } from "react-redux"
+
+import { Loading } from "../loading/component"
+import { useGetRestaurantsQuery } from "../../redux_store/features/services/api"
 
 
-export const Restaurants = ( { filterIds,className }) => {
+export const Restaurants = ( { filterId,className }) => {
  
-  const restaurantsIds = useSelector( store => selectRestaurantsFilteredById(store, filterIds ))
+  const {data, isFetching, isLoading} = useGetRestaurantsQuery();
+  // console.log("data", data);
+  const filterRestaurants = data?.filter(
+    (restaurant) => restaurant.id === filterId || filterId === "All"
+  );
 
- 
+  if (isLoading ) {
+    return <Loading />;
+  }
 
 return <div className={classNames(className, styles.restaurants)} 
 > 
-  {restaurantsIds.map((id) => <Restaurant id={id}/>
+  {filterRestaurants.map((data) => <Restaurant data={data}/>
   
   )}
 </div>

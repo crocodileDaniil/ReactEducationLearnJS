@@ -5,38 +5,31 @@ import { useEffect } from "react";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import { useTheme } from "../../thems/hooks";
-import { useSelector } from "react-redux";
-import {
-  selectDish,
-} from "../../../redux_store/features/entities/dishe/selectors";
 
 const [maxCount, minCount] = [5, 0];
 const discount = 0.3;
 
-export const Dish = ({ dishId }) => {
+export const Dish = ({ dish }) => {
   const [count, setCount] = useState(0);
   const [isDiscountUse, setIsDiscountUse] = useState(false);
   useEffect(() => setCount(0), [isDiscountUse]);
 
-  const data = useSelector((state) => selectDish(state, dishId));
-
-
   const priceDiscount = 1 - discount;
   const totalPrice = (
-    isDiscountUse ? data?.price * priceDiscount * count : data?.price * count
+    isDiscountUse ? dish?.price * priceDiscount * count : dish?.price * count
   ).toFixed(2);
 
   const { theme } = useTheme();
 
-  if (!!data) {
+  if (!!dish) {
     return (
       <div className={styles.dish}>
-        <p className={styles.name}>{data.name}</p>
+        <p className={styles.name}>{dish.name}</p>
         <div>
           <div className={styles.infoDish}>
-            <div className={styles.infoDishElement}>price: {data.price}$</div>
+            <div className={styles.infoDishElement}>price: {dish.price}$</div>
             <div className={styles.infoDishElement}>
-              ingredients: {data.ingredients.join(", ")}
+              ingredients: {dish.ingredients.join(", ")}
             </div>
           </div>
         </div>

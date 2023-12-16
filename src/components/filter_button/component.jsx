@@ -3,15 +3,21 @@ import { useTheme } from "../thems/hooks";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import { selectRestaurantById } from "../../redux_store/features/entities/restaurant/selectors";
+import { useGetRestaurantsQuery } from "../../redux_store/features/services/api";
 
 export const FilterButton = ({ id, onClickFilter }) => {
   const { theme } = useTheme();
 
   // console.log('Id this filterButton', id)
 
-const restaurantName =  useSelector((store) => selectRestaurantById(store, id)?.name);
+  
+  const { data, isFetching } = useGetRestaurantsQuery();
 
-  // console.log("filter", restaurantName);
+  const restaurantArray= data?.find((item) => (item?.id === id));
+ 
+  const restaurantName = restaurantArray?.name
+
+  if (!isFetching) {
   return (
     <button
       onClick={onClickFilter}
@@ -30,4 +36,5 @@ const restaurantName =  useSelector((store) => selectRestaurantById(store, id)?.
       restaurant: {restaurantName ? restaurantName : id}
     </button>
   );
+}
 };

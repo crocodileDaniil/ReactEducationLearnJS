@@ -1,15 +1,20 @@
-import { useSelector } from "react-redux";
-import styles from "./styles.module.css"
-import { selectReviewById } from "../../../redux_store/features/entities/review/selectors";
-import { selectUserById } from "../../../redux_store/features/entities/user/selectors";
+import { useGetUsersQuery } from "../../../redux_store/features/services/api";
 
-export const Review = ({ reviewId }) => {
-  const review = useSelector( state => selectReviewById(state,reviewId))
-  const reviewName = useSelector( state => selectUserById(state,review.userId))
-  if (!!review) {
+import styles from "./styles.module.css"
+
+
+export const Review = ({ review }) => {
+
+const {data,isFetching,isLoading} = useGetUsersQuery()
+
+
+if (!isFetching) {
+
+    const user = data.find((user) => user.id === review.userId)
+
     return (
       <div className={styles.review}>
-        <p className={styles.user}> {reviewName}</p>
+        <p className={styles.user}> {user.name}</p>
         <div className={styles.text}>
           <div>review: {review.text}.</div>
           <div>rating: {review.rating}</div>

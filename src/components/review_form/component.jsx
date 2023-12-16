@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { Counter } from "../counter/component";
+import { Button } from "../button/component";
 
 import styles from "./styles.module.css";
 import classNames from "classnames";
@@ -92,7 +93,7 @@ export const ReviewForm = ({ className }) => {
           />
           </div>
 
-        
+          <Button name = {'отправить'}/>
         </div>
       </div>
     </div>

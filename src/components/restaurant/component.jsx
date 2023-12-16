@@ -4,24 +4,23 @@ import { RestaurantReviews } from "../restaurant_reviews/component";
 import { ReviewForm } from "../review_form/component";
 
 import styles from "./style.module.css";
-import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../redux_store/features/entities/restaurant/selectors";
-
-import { getStore } from "../../redux_store";
-
-export const Restaurant = ({ id }) => {
-  const restaurant = useSelector((store) => selectRestaurantById(store, id));
 
 
-  console.log("store: ", getStore());
-  if (!!restaurant) {
+export const Restaurant = ({ data }) => {
+  
+
+
+  // console.log("store: ", getStore());
+  if (!!data) {
+    // console.log("restaurantsRev: ",data.reviews)  ;
     return (
       
       <div className={classNames(styles.restaurant)}>
-        <h2 className={styles.title}>{restaurant?.name}</h2>
-        <RestaurantMenu menuIds={restaurant?.menu} restId={id} />
+        <h2 className={styles.title}>{data?.name}</h2>
+        <RestaurantMenu menuIds={data?.menu}  restaurantId={data.id} />
         <RestaurantReviews
-          reviewsIds={restaurant.reviews}
+          reviewsIds={data.reviews}
+          restaurantId={data.id}
           className={styles.reviews}
         />
         <ReviewForm className={styles.reviewForm} />
