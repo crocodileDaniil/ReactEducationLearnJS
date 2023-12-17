@@ -12,7 +12,9 @@ export const Button = ({ name, onClick }) => {
     <button onClick={onClick} className={classNames(styles["button-default"], 
     {[styles["button-default_white"]]: theme.whiteThemeButton === true && theme.whiteThemeAll === true},
     {[styles["button-default_dark"]]: theme.whiteThemeButton === false || theme.whiteThemeAll === false},
-    )}>
+    )}
+    
+    >
      
       {name}
     </button>

@@ -4,6 +4,7 @@ import { Button } from "../button/component";
 
 import styles from "./styles.module.css";
 import classNames from "classnames";
+import { useCreateReviewMutation } from "../../redux_store/features/services/api";
 
 const STEP = 0.5;
 const [leftBoundary, rightBoundary] = [0, 5];
@@ -36,8 +37,16 @@ const boundaryConrol = (n) => {
   return n;
 };
 
-export const ReviewForm = ({ className }) => {
+
+
+export const ReviewForm = ({ className, productId }) => {
+  const [createReview,review] = useCreateReviewMutation()
   const [formValue, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
+  // const userId = '20bed9b5-9c7b-4771--75b74ed1904a'
+  const restaurantId = 'a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2'
+
+  // console.log('review', review)
+  // console.log('formValue', formValue)
   return (
     <div className={ classNames(className,styles.flex)}>
       <div className={styles.formWrapper}>
@@ -93,7 +102,7 @@ export const ReviewForm = ({ className }) => {
           />
           </div>
 
-          <Button name = {'отправить'}/>
+          <Button name = {'отправить'} onClick={() => createReview({ restaurantId , newReview: formValue})}/>
         </div>
       </div>
     </div>
