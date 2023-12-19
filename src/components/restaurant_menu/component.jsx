@@ -7,8 +7,8 @@ import styles from './styles.module.css'
 
 
 export const RestaurantMenu = ( { menuIds, restaurantId }) => {
-  const {data, isFetching, isLoaded} = useGetRestaurantDishesQuery(restaurantId)
-
+  const {data: menu, isFetching, isLoaded} = useGetRestaurantDishesQuery(restaurantId)
+  console.log('menu', menu)
   
   if (isFetching ) {
   return <Loading />
@@ -17,7 +17,7 @@ export const RestaurantMenu = ( { menuIds, restaurantId }) => {
 return <div className={styles.menu}> 
   <h3>Меню: </h3>
   <ul className={styles.menuDishes}> 
-      {data.map((dish) =>  <Dish dish={dish}/> )}
+      {menu.map((dish) =>  <Dish dish={dish}/> )}
   </ul>
 </div>
 }

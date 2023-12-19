@@ -35,7 +35,16 @@ export const api = createApi({
         body: newReview,
       }),
       invalidatesTags: ( result ) => [{type: 'Review', id: 'All'}]
-    })
+    }),
+    updateReview: builder.mutation({
+      query: ({ reviewId, newReview }) => ({
+        // url:`review/${ userId }`,
+        url: `review/${reviewId}`,
+        method: "PATCH",
+        body: newReview,
+      }),
+      invalidatesTags: (result) => [{ type: "Review", id: "All" }],
+    }),
   }),
 });
 
@@ -45,4 +54,5 @@ useGetRestaurantDishesQuery,
 useGetRestaurantReviewsQuery,
 useGetUsersQuery,
 useCreateReviewMutation,
+useUpdateReviewMutation,
     } = api;
