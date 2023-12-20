@@ -23,7 +23,7 @@ export const Restaurant = ({ data }) => {
           restaurantId={data.id}
           className={styles.reviews}
         />
-        <ReviewForm className={styles.reviewForm} />
+        <ReviewForm className={styles.reviewForm} restaurantId={data.id}/>
       </div>
     );
   }

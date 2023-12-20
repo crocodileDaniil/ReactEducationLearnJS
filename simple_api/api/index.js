@@ -86,7 +86,7 @@ router.patch("/review/:reviewId", (req, res, next) => {
   if (reviewId) {
     updatedReview = updateById(reviews)(reviewId, body);
   }
-
+ 
   reply(res, updatedReview);
 });
 

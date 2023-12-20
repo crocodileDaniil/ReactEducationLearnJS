@@ -2,9 +2,9 @@ import { useReducer } from "react";
 import { Counter } from "../counter/component";
 import { Button } from "../button/component";
 
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 import classNames from "classnames";
-import { useCreateReviewMutation } from "../../redux_store/features/services/api";
+import { useCreateReviewMutation, useUpdateReviewMutation } from "../../redux_store/features/services/api";
 
 const STEP = 0.5;
 const [leftBoundary, rightBoundary] = [0, 5];
@@ -18,10 +18,8 @@ const DEFAULT_FORM_VALUE = {
 const [setName, setText, setRating] = ["setName", "setText", "setRating"];
 
 const reducer = (state, action) => {
-  // console.log("value of action", action);
+//   console.log("value of action", state);
   switch (action.type) {
-    case "setName":
-      return { ...state, name: action.payload };
     case "setText":
       return { ...state, text: action.payload };
     case "setRating":
@@ -37,32 +35,22 @@ const boundaryConrol = (n) => {
   return n;
 };
 
+export const FormModificationReview = ({ className, review, updateReview, onNoneUpdate }) => {
+  const [formValue, dispatch] = useReducer(reducer, {
+    text: review.text,
+    rating: review.rating,
+  });
 
+  
+const reviewId = review.id;
 
-export const ReviewForm = ({ className, restaurantId }) => {
-  const [createReview,review] = useCreateReviewMutation()
-  const [formValue, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
+    // console.log(review.id);
 
   return (
     <div className={classNames(className, styles.flex)}>
       <div className={styles.formWrapper}>
-        <div className={styles.title}>tell us your feedback </div>
         <div className={styles.form}>
-          <div className={styles.formElemnt}>
-            <label className={styles.formLegend} htmlFor="name">
-              Name
-            </label>
-            <input
-              className={styles.input}
-              placeholder="John"
-              id="name"
-              type="text"
-              value={formValue.name}
-              onChange={(e) => {
-                dispatch({ type: setName, payload: e.target.value });
-              }}
-            />
-          </div>
+          <Button name={"отмена"} onClick={() => onNoneUpdate(false)} />
           <div className={styles.formElemnt}>
             <label className={styles.formLegend} htmlFor="text">
               Text
@@ -106,11 +94,10 @@ export const ReviewForm = ({ className, restaurantId }) => {
           <Button
             name={"отправить"}
             onClick={() =>
-              createReview({
-                restaurantId,
+              updateReview({
+                reviewId,
                 newReview: {
                   ...formValue,
-                  userId: "c3d4abd4-c3ef-46e1-8719-eb17db1d6e99",
                 },
               })
             }
