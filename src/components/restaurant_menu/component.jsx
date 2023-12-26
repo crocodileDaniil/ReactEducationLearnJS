@@ -1,31 +1,23 @@
-import { useDispatch } from "react-redux";
+
+import { Loading } from "../loading/component";
+import { useGetRestaurantDishesQuery } from "../../redux_store/features/services/api";
 import { Dish } from "./dish/component"
 
 import styles from './styles.module.css'
-import { useEffect } from "react";
-import { getDishes } from "../../redux_store/features/entities/dishe/thunks/get_dishes";
-import { useSelector } from "react-redux";
-import { selecDishestStatus } from "../../redux_store/features/entities/dishe/selectors";
-import { Loading } from "../loading/component";
-
-export const RestaurantMenu = ( { menuIds, restId }) => {
-  const dispatch = useDispatch()
 
 
-  useEffect(() => {
-    dispatch(getDishes(restId));
-  }, [restId]);
+export const RestaurantMenu = ( { menuIds, restaurantId }) => {
+  const {data: menu, isFetching, isLoaded} = useGetRestaurantDishesQuery(restaurantId)
+  console.log('menu', menu)
   
-  const status = useSelector( store => selecDishestStatus(store) )
-  
-  if (status !== 'fullfield') {
+  if (isFetching ) {
   return <Loading />
   }
 
 return <div className={styles.menu}> 
   <h3>Меню: </h3>
   <ul className={styles.menuDishes}> 
-      {menuIds.map((dishId) =>  <Dish dishId={dishId}/> )}
+      {menu.map((dish) =>  <Dish dish={dish}/> )}
   </ul>
 </div>
 }

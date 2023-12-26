@@ -1,39 +1,27 @@
 import { useState } from "react";
 import { FilterFoods } from "../../components/filter_menu/component";
 import { Restaurants } from "../../components/restaurants/component";
-import styles from "./styles.module.css";
 import { Layout } from "../../components/layout/component";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { getRestaurants } from "../../redux_store/features/entities/restaurant/thunks/get_restaurants";
-import { useSelector } from "react-redux";
-import { selectRestaurantStatus } from "../../redux_store/features/entities/restaurant/selectors";
 import { Loading } from "../../components/loading/component";
+import { useGetRestaurantsQuery } from "../../redux_store/features/services/api";
+
+import styles from "./styles.module.css";
 
 export const RestaurantsPage = () => {
   const [filter, setFilter] = useState("");
 
-  // const restaurants = useSelector( store => selectRestaurantModule(store).entities)
-
-  const dispatch = useDispatch();
-  
-
-  useEffect(() => {
-    dispatch(getRestaurants());
-  }, []);
-
-  const status = useSelector((store) => selectRestaurantStatus(store));
+  const {data, isFetching, isLoading} = useGetRestaurantsQuery(undefined)
   // console.log(status);
 
   // console.log('redner page')
-  if (status !== "fullfield") {
+  if (isLoading) {
     return <Layout >
      <Loading className={styles.loading} />
     </Layout>
   }
 
-
-  if (status === "fullfield") {
+// console.log(filter)
+  if (!isLoading) {
     return (
       <Layout>
         <div className={styles.page}>
@@ -48,7 +36,7 @@ export const RestaurantsPage = () => {
             />
           </div>
           <div className={styles.wpapper}>
-            <Restaurants className={styles.container} filterIds={filter} />
+            <Restaurants className={styles.container} filterId={filter} />
           </div>
         </div>
       </Layout>
