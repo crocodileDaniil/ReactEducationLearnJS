@@ -1,0 +1,15 @@
+.link {
+    text-decoration: none;
+    padding: 5px;
+    border: 1px solid orange;
+    border-radius: 8px;
+    background-color: rgb(245, 176, 48);
+    color: white;
+    cursor: pointer;
+}
+
+.active {
+    color: gray;
+    border-color: black;
+    cursor: default;
+}

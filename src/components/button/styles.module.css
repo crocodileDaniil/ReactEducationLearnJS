@@ -1,8 +1,8 @@
 .button-default {
   border-radius: 8px;
   padding: 10px;
-  color: wheat;
-  transition: all 0.2s;
+  color: rgb(241, 232, 214);
+  transition: all 0.3s;
   cursor: pointer;
 }
 
@@ -24,3 +24,10 @@
  background-color:  rgb(108, 36, 251);
   border:2px solid rgb(85, 0, 255);
 }
+
+.button-default:hover {
+  transform: scale(1.07);
+  background-color: rgb(44, 118, 255);
+  border-color: rgb(44, 118, 255);
+}
+

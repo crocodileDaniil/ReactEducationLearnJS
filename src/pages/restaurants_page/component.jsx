@@ -6,6 +6,7 @@ import { Loading } from "../../components/loading/component";
 import { useGetRestaurantsQuery } from "../../redux_store/features/services/api";
 
 import styles from "./styles.module.css";
+import { Outlet } from "react-router-dom";
 
 export const RestaurantsPage = () => {
   const [filter, setFilter] = useState("");
@@ -36,7 +37,8 @@ export const RestaurantsPage = () => {
             />
           </div>
           <div className={styles.wpapper}>
-            <Restaurants className={styles.container} filterId={filter} />
+            {/* <Restaurants className={styles.container} filterId={filter} /> */}
+            <Outlet />
           </div>
         </div>
       </Layout>

@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import classNames from "classnames";
 import { selectRestaurantById } from "../../redux_store/features/entities/restaurant/selectors";
 import { useGetRestaurantsQuery } from "../../redux_store/features/services/api";
+import { NavLink } from "react-router-dom";
 
 export const FilterButton = ({ id, onClickFilter }) => {
   const { theme } = useTheme();
@@ -17,9 +18,11 @@ export const FilterButton = ({ id, onClickFilter }) => {
  
   const restaurantName = restaurantArray?.name
 
+  const road = `/restaurant/${id}`;
   if (!isFetching) {
   return (
-    <button
+    <NavLink
+    to={road}
       onClick={onClickFilter}
       className={classNames(
         styles.button,
@@ -34,7 +37,7 @@ export const FilterButton = ({ id, onClickFilter }) => {
       )}
     >
       restaurant: {restaurantName ? restaurantName : id}
-    </button>
+    </NavLink>
   );
 }
 };

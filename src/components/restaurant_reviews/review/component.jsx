@@ -4,14 +4,12 @@ import { Button } from "../../button/component";
 import styles from "./styles.module.css"
 
 
-export const Review = ({ review,onModificatonClick }) => {
 
-const {data,isFetching,isLoading} = useGetUsersQuery()
+export const Review = ({ review, onModificatonClick }) => {
+  const { data, isFetching, isLoading } = useGetUsersQuery();
 
-if (!isFetching) {
-
-    const user = data.find((user) => user.id === review.userId)
-
+  if (!isFetching) {
+    const user = data.find((user) => user.id === review.userId);
     return (
       <div className={styles.review}>
         <Button name={"изменить"} onClick={onModificatonClick} />
@@ -23,4 +21,4 @@ if (!isFetching) {
       </div>
     );
   }
-  };
+};

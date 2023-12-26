@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const api = createApi({
   reducerPath: "api",
-  tagTypes: ['Review'],
+  tagTypes: ["Review"],
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/api/" }),
   endpoints: (builder) => ({
     getRestaurants: builder.query({
@@ -20,7 +20,10 @@ export const api = createApi({
       query: (restaurantId) => ({
         url: `reviews?restaurantId=${restaurantId}`,
       }),
-      providesTags: ( result ) => result.map( ({ id }) => ({type: 'Reviews', id }) ).concat( {type: 'Review', id: 'All'})
+      providesTags: (result) =>
+        result
+          .map(({ id }) => ({ type: "Reviews", id }))
+          .concat({ type: "Review", id: "All" }),
     }),
     getUsers: builder.query({
       query: () => ({
@@ -28,13 +31,14 @@ export const api = createApi({
       }),
     }),
     createReview: builder.mutation({
-      query:( { restaurantId, newReview }) => ({
+      query: ({ restaurantId, newReview }) => ({
         // url:`review/${ userId }`,
-        url:`review/${ restaurantId }`,
+        url: `review/${restaurantId}`,
         method: "POST",
         body: newReview,
       }),
-      invalidatesTags: ( result ) => [{type: 'Review', id: 'All'}]
+<
+      invalidatesTags: (result) => [{ type: "Review", id: "All" }],
     }),
     updateReview: builder.mutation({
       query: ({ reviewId, newReview }) => ({
@@ -48,11 +52,13 @@ export const api = createApi({
   }),
 });
 
-export const { 
-useGetRestaurantsQuery,
-useGetRestaurantDishesQuery,
-useGetRestaurantReviewsQuery,
-useGetUsersQuery,
-useCreateReviewMutation,
-useUpdateReviewMutation,
-    } = api;
+
+export const {
+  useGetRestaurantsQuery,
+  useGetRestaurantDishesQuery,
+  useGetRestaurantReviewsQuery,
+  useGetUsersQuery,
+  useCreateReviewMutation,
+  useUpdateReviewMutation,
+} = api;
+
